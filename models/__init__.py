@@ -1,6 +1,6 @@
 from .settings import db, db_path
-from .user import User
+from .member import Member
 
-if not db.table_exists('user'):
-    db.create_tables([User])
+if not db.table_exists('member'):
+    db.create_tables([Member])
 
