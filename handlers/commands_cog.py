@@ -6,9 +6,9 @@ from bot import bot
 
 help_text = '''
 .help - помощь
-.kick <username> - кикнуть пользователя
-.ban <username> - забанить пользователя
-.unban <username> - разбанить пользователя
+.kick @username - кикнуть пользователя
+.ban @username - забанить пользователя
+.unban @username - разбанить пользователя
 '''
 
 
