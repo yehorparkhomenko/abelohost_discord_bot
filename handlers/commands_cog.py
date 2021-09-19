@@ -20,7 +20,7 @@ class CommandsCog(commands.Cog):
         self._last_member = None
 
     @commands.command()
-    async def help(self, ctx, *, member: Member):
+    async def help(self, ctx):
         await ctx.send(help_text)
 
     @commands.command()
