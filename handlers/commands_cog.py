@@ -37,11 +37,8 @@ class CommandsCog(commands.Cog):
     async def unban(self, ctx, *, username):
         username = username.replace('<', '').replace('>', '')
         if username.startswith('@!'):
-            print(1)
             id = username.replace('@!', '')
-            print(id)
             for ban in await ctx.guild.bans():
-                print(ban)
                 if str(ban.user.id) == id:
                     await ctx.guild.unban(ban.user)
                     await ctx.send('пользователь @{0} разбанен!'.format(ban.user.name))
