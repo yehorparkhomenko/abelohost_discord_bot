@@ -35,13 +35,25 @@ class CommandsCog(commands.Cog):
 
     @commands.command()
     async def unban(self, ctx, *, username):
-        username = username.replace('@', '')
-        member_name = username.split('#')[0]
-        for ban in await ctx.guild.bans():
-            if ban.user.name == member_name:
-                await ctx.guild.unban(ban.user)
-                await ctx.send('пользователь @{0} разбанен!'.format(ban.user.name))
-                return
+        username = username.replace('<', '').replace('>', '')
+        if username.startswith('@!'):
+            print(1)
+            id = username.replace('@!', '')
+            print(id)
+            for ban in await ctx.guild.bans():
+                print(ban)
+                if str(ban.user.id) == id:
+                    await ctx.guild.unban(ban.user)
+                    await ctx.send('пользователь @{0} разбанен!'.format(ban.user.name))
+                    return
+        else:  
+            username = username.replace('@', '')
+            member_name = username.split('#')[0]
+            for ban in await ctx.guild.bans():
+                if ban.user.name == member_name:
+                    await ctx.guild.unban(ban.user)
+                    await ctx.send('пользователь @{0} разбанен!'.format(ban.user.name))
+                    return
         await ctx.send('Пользователь  не найден!')
 
             
