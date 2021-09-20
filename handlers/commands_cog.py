@@ -31,7 +31,7 @@ class CommandsCog(commands.Cog):
     @commands.command()
     async def ban(self, ctx, *, member: Member):
         await member.ban()
-        await ctx.send('пользователь {0.mention} забанен!'.format(member))
+        await ctx.send('пользователь {0.mention} забанене!'.format(member))
 
     @commands.command()
     async def unban(self, ctx, *, username):
@@ -40,9 +40,9 @@ class CommandsCog(commands.Cog):
         for ban in await ctx.guild.bans():
             if ban.user.name == member_name:
                 await ctx.guild.unban(ban.user)
-                await ctx.send('пользователь @{0} разбанен!'.format(ban.user.name))
+                await ctx.send('пользователь {0} разбанен!'.format(ban.user.mention))
                 return
-        await ctx.send('Пользователь не найден!')
+        await ctx.send('Пользователь {0} не найден!'.format(username))
 
             
 bot.add_cog(CommandsCog(bot))
